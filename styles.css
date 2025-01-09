@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #00aaff;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.search-section {
+  margin-bottom: 30px;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #222;
+  color: #eee;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #007acc;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.experience-item {
+  background: #222;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+.skills-list {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.skill-item {
+  background: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #444;
+}
+
+.skill-item:hover {
+  background: #444;
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #666;
+}
