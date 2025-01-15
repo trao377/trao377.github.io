@@ -5,67 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Documentation</title>
     <style>
+        :root {
+            --bg-primary: #1a1b1e;
+            --bg-secondary: #2b2d31;
+            --accent: #5865f2;
+            --text-primary: #ffffff;
+            --text-secondary: #b5bac1;
+            --code-bg: #2d2d2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #181818;
-            color: #f0f0f0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
             display: flex;
         }
+
         .sidebar {
-            width: 200px;
-            background-color: #282828;
-            padding: 20px;
+            width: 250px;
+            background-color: var(--bg-secondary);
             height: 100vh;
             position: fixed;
-            overflow-y: auto;
+            padding: 2rem 1rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        .sidebar-header {
+            padding: 0 1rem 1.5rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
         .sidebar a {
-            color: #f0f0f0;
+            color: var(--text-secondary);
             text-decoration: none;
             display: block;
-            margin: 10px 0;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin: 0.25rem 0;
+            transition: all 0.2s ease;
         }
+
+        .sidebar a:hover {
+            background-color: rgba(88, 101, 242, 0.1);
+            color: var(--accent);
+        }
+
         .content {
-            margin-left: 220px;
-            padding: 20px;
-            width: 100%;
+            margin-left: 250px;
+            padding: 2rem 3rem;
+            max-width: 1200px;
         }
-        h1, h2 {
-            margin-bottom: 10px;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        h2 {
+            font-size: 1.75rem;
+            margin: 2.5rem 0 1.5rem 0;
+            color: var(--accent);
+        }
+
+        p {
+            margin: 1rem 0;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
         blockquote {
-            border-left: 4px solid #ccc;
-            padding-left: 10px;
-            margin: 10px 0;
-            color: #ccc;
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+            color: var(--text-primary);
         }
+
         pre {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            padding: 10px;
-            border-radius: 5px;
+            background-color: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
             overflow-x: auto;
         }
-        .discord-style blockquote {
-            display: flex;
-            align-items: center;
-        }
-        .discord-style blockquote::before {
-            content: '|';
-            color: #ccc;
-            margin-right: 10px;
-        }
-        .discord-style code {
-            background-color: #2d2d2d;
+
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
             color: #f8f8f2;
-            padding: 2px 5px;
-            border-radius: 3px;
-            display: inline-block;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin: 0.75rem 0;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: -1.5rem;
+            font-weight: bold;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .color-combo {
+            background-color: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+            .content {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="margin: 0;">Documentation</h2>
+        </div>
         <a href="#section1">I. Le chat</a>
         <a href="#section2">II. Les BossBar / ActionBar</a>
         <a href="#section3">III. Scoreboard</a>
@@ -75,37 +177,47 @@
     <div class="content">
         <h1 id="section1">I. Le chat</h1>
         <p>Pour le chat, il faut un UI classique. Pas besoin de s'embêter la vie pour faire un truc méga-complexe.</p>
-        <blockquote class="discord-style">Hypixel » Mon message...</blockquote>
-        <blockquote class="discord-style">[Hypixel] Mon message...</blockquote>
-        <blockquote class="discord-style">Hypixel: Mon message...</blockquote>
-        <blockquote class="discord-style">Hypixel - Mon message...</blockquote>
-        <blockquote class="discord-style">[Succès] Tu as accompli le succès 'Trouver une documentation' !</blockquote>
+        <blockquote>Hypixel » Mon message...</blockquote>
+        <blockquote>[Hypixel] Mon message...</blockquote>
+        <blockquote>Hypixel: Mon message...</blockquote>
+        <blockquote>Hypixel - Mon message...</blockquote>
+        <blockquote>[Succès] Tu as accompli le succès 'Trouver une documentation' !</blockquote>
 
         <h2 id="section2">II. Les BossBar / ActionBar</h2>
         <p>Pour ces derniers, faut être toujours aussi simple. Si vous êtes en 1.9 + vous pouvez mettre de la couleur sur la barre. Sinon si vous êtes en 1.8 cela sera en violet.</p>
 
         <h2 id="section3">III. Scoreboard</h2>
-        <blockquote class="discord-style">Compte: trao</blockquote>
-        <blockquote class="discord-style">Grade: Admin</blockquote>
-        <blockquote class="discord-style">Pièces: 0 ◆</blockquote>
-        <blockquote class="discord-style">Gemmes: 0 ✦</blockquote>
-        <blockquote class="discord-style">Inscrits: 1 (ou mettre le serveur par exemple ; Hub: #1)</blockquote>
-        <blockquote class="discord-style">Connectés: 1</blockquote>
+        <div class="scoreboard">
+            <blockquote>Compte: trao</blockquote>
+            <blockquote>Grade: Admin</blockquote>
+            <blockquote>Pièces: 0 ◆</blockquote>
+            <blockquote>Gemmes: 0 ✦</blockquote>
+            <blockquote>Inscrits: 1</blockquote>
+            <blockquote>Connectés: 1</blockquote>
+        </div>
 
         <h2 id="section4">IV. Les couleurs</h2>
         <p>Pour les couleurs, tout dépend de votre thème de serveur, ou que la couleur souhaitez. Voici une palette de couleur qui vas bien ensemble:</p>
-        <ul>
-            <li>Orange (&6), Jaune (&e), Bleu ciel (&b), Blanc (&f)</li>
-            <li>Gris (&7), Blanc (&f), Jaune (&e), Orange (&6)</li>
-            <li>Rose (&d), Violet (&5), Blanc (&f), Gris (&7)</li>
-            <li>Bleu (&9), Blanc (&f)</li>
-        </ul>
+        <div class="color-palette">
+            <div class="color-combo">
+                <p>Orange (&6), Jaune (&e), Bleu ciel (&b), Blanc (&f)</p>
+            </div>
+            <div class="color-combo">
+                <p>Gris (&7), Blanc (&f), Jaune (&e), Orange (&6)</p>
+            </div>
+            <div class="color-combo">
+                <p>Rose (&d), Violet (&5), Blanc (&f), Gris (&7)</p>
+            </div>
+            <div class="color-combo">
+                <p>Bleu (&9), Blanc (&f)</p>
+            </div>
+        </div>
 
         <h2 id="section5">V. Les utilitaires</h2>
         <p>Pour crée un serveur de jeu fonctionnel, il faut beaucoup d'outils pour pouvoir le serveur rapidement et pouvoir développer efficacement.</p>
 
-        <blockquote class="discord-style">ItemAction</blockquote>
-        <pre><code class="language-java">private static final String MY_ACTION = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
+        <h3>ItemAction</h3>
+        <pre><code>private static final String MY_ACTION = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
 
 void setAction(ItemStack stack) {    
     ItemActions.set(stack, MY_ACTION);
@@ -123,21 +235,20 @@ void onItemAction(ItemActionEvent event) {
         event.markHandled();
         // Do something
     }
-}
-</code></pre>
+}</code></pre>
 
-        <blockquote class="discord-style">ItemConstraints</blockquote>
-        <pre><code class="language-java">ItemStack stack = [...];
+        <h3>ItemConstraints</h3>
+        <pre><code>ItemStack stack = [...];
 ItemConstraints.lock(stack);
-// give
-</code></pre>
-        <pre><code class="language-java">ItemStack stack = [...];
+// give</code></pre>
+        
+        <pre><code>ItemStack stack = [...];
 ItemConstraints.link(stack);
-// give
-</code></pre>
+// give</code></pre>
 
-        <blockquote class="discord-style">ChatComponents</blockquote>
-        <p>Pour éviter de se prendre la tête à coder un système de ChatComponents vous pouvez utiliser Kyori : <a href="https://github.com/KyoriPowered/adventure-platform">https://github.com/KyoriPowered/adventure-platform</a></p>
+        <h3>ChatComponents</h3>
+        <p>Pour éviter de se prendre la tête à coder un système de ChatComponents vous pouvez utiliser Kyori :</p>
+        <p><a href="https://github.com/KyoriPowered/adventure-platform">https://github.com/KyoriPowered/adventure-platform</a></p>
         <p>Documentation : <a href="https://docs.advntr.dev/platform/">https://docs.advntr.dev/platform/</a></p>
     </div>
 </body>
