@@ -1,1 +1,125 @@
-cc
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        blockquote {
+            border-left: 4px solid #ccc;
+            padding-left: 10px;
+            margin: 10px 0;
+            color: #555;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        pre code {
+            color: #f8f8f2;
+        }
+        .discord-style blockquote {
+            display: flex;
+            align-items: center;
+        }
+        .discord-style blockquote::before {
+            content: '|';
+            color: #ccc;
+            margin-right: 10px;
+        }
+        .discord-style code {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 2px 5px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>I. Le chat</h1>
+    <p>Pour le chat, il faut un UI classique. Pas besoin de s'embêter la vie pour faire un truc méga-complexe.</p>
+    <blockquote class="discord-style">Hypixel » Mon message...</blockquote>
+    <blockquote class="discord-style">[Hypixel] Mon message...</blockquote>
+    <blockquote class="discord-style">Hypixel: Mon message...</blockquote>
+    <blockquote class="discord-style">Hypixel - Mon message...</blockquote>
+    <blockquote class="discord-style">[Succès] Tu as accompli le succès 'Trouver une documentation' !</blockquote>
+
+    <h2>II. Les BossBar / ActionBar</h2>
+    <p>Pour ces derniers, faut être toujours aussi simple. Si vous êtes en 1.9 + vous pouvez mettre de la couleur sur la barre. Sinon si vous êtes en 1.8 cela sera en violet.</p>
+
+    <h2>III. Scoreboard</h2>
+    <blockquote class="discord-style">Compte: trao</blockquote>
+    <blockquote class="discord-style">Grade: Admin</blockquote>
+    <blockquote class="discord-style">Pièces: 0 ◆</blockquote>
+    <blockquote class="discord-style">Gemmes: 0 ✦</blockquote>
+    <blockquote class="discord-style">Inscrits: 1 (ou mettre le serveur par exemple ; Hub: #1)</blockquote>
+    <blockquote class="discord-style">Connectés: 1</blockquote>
+
+    <h2>IV. Les couleurs</h2>
+    <p>Pour les couleurs, tout dépend de votre thème de serveur, ou que la couleur souhaitez. Voici une palette de couleur qui vas bien ensemble:</p>
+    <ul>
+        <li>Orange (&6), Jaune (&e), Bleu ciel (&b), Blanc (&f)</li>
+        <li>Gris (&7), Blanc (&f), Jaune (&e), Orange (&6)</li>
+        <li>Rose (&d), Violet (&5), Blanc (&f), Gris (&7)</li>
+        <li>Bleu (&9), Blanc (&f)</li>
+    </ul>
+
+    <h2>V. Les utilitaires</h2>
+    <p>Pour crée un serveur de jeu fonctionnel, il faut beaucoup d'outils pour pouvoir le serveur rapidement et pouvoir développer efficacement.</p>
+
+    <blockquote class="discord-style">ItemAction</blockquote>
+    <pre><code class="language-java">private static final String MY_ACTION = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
+
+void setAction(ItemStack stack) {    
+    ItemActions.set(stack, MY_ACTION);
+    // give item here
+}
+
+void get(ItemStack stack) {
+    String action = ItemActions.get(stack);
+    // Do something
+}
+
+@EventSubscribe
+void onItemAction(ItemActionEvent event) {
+    if (MY_ACTION.equals(event.getAction())) {
+        event.markHandled();
+        // Do something
+    }
+}
+</code></pre>
+
+    <blockquote class="discord-style">ItemConstraints</blockquote>
+    <pre><code class="language-java">ItemStack stack = [...];
+ItemConstraints.lock(stack);
+// give
+</code></pre>
+    <pre><code class="language-java">ItemStack stack = [...];
+ItemConstraints.link(stack);
+// give
+</code></pre>
+
+    <blockquote class="discord-style">ChatComponents</blockquote>
+    <p>Pour éviter de se prendre la tête à coder un système de ChatComponents vous pouvez utiliser Kyori : <a href="https://github.com/KyoriPowered/adventure-platform">https://github.com/KyoriPowered/adventure-platform</a></p>
+    <p>Documentation : <a href="https://docs.advntr.dev/platform/">https://docs.advntr.dev/platform/</a></p>
+</body>
+</html>
