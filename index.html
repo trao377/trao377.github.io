@@ -35,6 +35,7 @@
             position: fixed;
             padding: 2rem 1rem;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-y: auto;
         }
 
         .sidebar-header {
@@ -62,6 +63,7 @@
             margin-left: 250px;
             padding: 2rem 3rem;
             max-width: 1200px;
+            width: 100%;
         }
 
         h1 {
@@ -77,17 +79,23 @@
             color: var(--accent);
         }
 
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem 0;
+            color: var(--text-primary);
+        }
+
         p {
             margin: 1rem 0;
             color: var(--text-secondary);
             font-size: 1rem;
         }
 
-        blockquote {
+        .message-example {
             background-color: var(--bg-secondary);
             border-left: 4px solid var(--accent);
             padding: 1rem;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
             border-radius: 0 8px 8px 0;
             color: var(--text-primary);
         }
@@ -109,6 +117,7 @@
         ul {
             list-style: none;
             padding-left: 1.5rem;
+            margin: 1rem 0;
         }
 
         li {
@@ -125,16 +134,6 @@
             font-weight: bold;
         }
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        a:hover {
-            opacity: 0.8;
-        }
-
         .color-palette {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -147,6 +146,16 @@
             padding: 1rem;
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
@@ -177,44 +186,48 @@
     <div class="content">
         <h1 id="section1">I. Le chat</h1>
         <p>Pour le chat, il faut un UI classique. Pas besoin de s'embêter la vie pour faire un truc méga-complexe.</p>
-        <blockquote>Hypixel » Mon message...</blockquote>
-        <blockquote>[Hypixel] Mon message...</blockquote>
-        <blockquote>Hypixel: Mon message...</blockquote>
-        <blockquote>Hypixel - Mon message...</blockquote>
-        <blockquote>[Succès] Tu as accompli le succès 'Trouver une documentation' !</blockquote>
+        <p>Personnellement, je change globalement les préfixes de mes messages à chaque projets. Voici des exemples :</p>
+        <div class="message-example">Hypixel » Mon message...</div>
+        <div class="message-example">[Hypixel] Mon message…</div>
+        <div class="message-example">Hypixel: Mon message…</div>
+        <div class="message-example">Hypixel - Mon message…</div>
+        
+        <p>Pour les couleurs ; je conseille de faire quelques choses de simpliste et clair par exemple qui est lié au thème de votre serveur. Tout dépend de l'utilisation.</p>
+        <div class="message-example">[Succès] Tu as accompli le succès 'Trouver une documentation' !</div>
 
         <h2 id="section2">II. Les BossBar / ActionBar</h2>
         <p>Pour ces derniers, faut être toujours aussi simple. Si vous êtes en 1.9 + vous pouvez mettre de la couleur sur la barre. Sinon si vous êtes en 1.8 cela sera en violet.</p>
+        <p>Personnellement, je conseille de faire un /annonce comme à la Rinaorc car cela était une très bonne idée. Si vous êtes en 1.9 et + ; vous pouvez choisir la couleur de la bossbar si l'annonce est accepté.</p>
 
         <h2 id="section3">III. Scoreboard</h2>
-        <div class="scoreboard">
-            <blockquote>Compte: trao</blockquote>
-            <blockquote>Grade: Admin</blockquote>
-            <blockquote>Pièces: 0 ◆</blockquote>
-            <blockquote>Gemmes: 0 ✦</blockquote>
-            <blockquote>Inscrits: 1</blockquote>
-            <blockquote>Connectés: 1</blockquote>
-        </div>
+        <p>Pour votre scoreboard, voici les conditions qu'il faut :</p>
+        <ul>
+            <li>Qu'il ne sois pas vide</li>
+            <li>Des informations utiles</li>
+        </ul>
+        
+        <p>Voici un exemple :</p>
+        <div class="message-example">Compte: trao</div>
+        <div class="message-example">Grade: Admin</div>
+        <div class="message-example">Pièces: 0 ◆</div>
+        <div class="message-example">Gemmes: 0 ✦</div>
+        <div class="message-example">Inscrits: 1 (ou mettre le serveur par exemple ; Hub: #1)</div>
+        <div class="message-example">Connectés: 1</div>
 
         <h2 id="section4">IV. Les couleurs</h2>
-        <p>Pour les couleurs, tout dépend de votre thème de serveur, ou que la couleur souhaitez. Voici une palette de couleur qui vas bien ensemble:</p>
+        <p>Pour les couleurs tous dépend de votre thème de serveur, ou que la couleur souhaitez. Voici une palette de couleur qui vas bien ensemble :</p>
         <div class="color-palette">
-            <div class="color-combo">
-                <p>Orange (&6), Jaune (&e), Bleu ciel (&b), Blanc (&f)</p>
-            </div>
-            <div class="color-combo">
-                <p>Gris (&7), Blanc (&f), Jaune (&e), Orange (&6)</p>
-            </div>
-            <div class="color-combo">
-                <p>Rose (&d), Violet (&5), Blanc (&f), Gris (&7)</p>
-            </div>
-            <div class="color-combo">
-                <p>Bleu (&9), Blanc (&f)</p>
-            </div>
+            <div class="color-combo">Orange (&6), Jaune (&e), Bleu ciel (&b), Blanc (&f)</div>
+            <div class="color-combo">Gris (&7), Blanc (&f), Jaune (&e), Orange (&6)</div>
+            <div class="color-combo">Rose (&d), Violet (&5), Blanc (&f), Gris (&7)</div>
+            <div class="color-combo">Bleu (&9), Blanc (&f)</div>
         </div>
 
         <h2 id="section5">V. Les utilitaires</h2>
-        <p>Pour crée un serveur de jeu fonctionnel, il faut beaucoup d'outils pour pouvoir le serveur rapidement et pouvoir développer efficacement.</p>
+        <p>Pour crée un serveur de jeu fonctionnel il faut beaucoup d'outils pour pouvoir le serveur rapidement et pouvoir développer efficasement.</p>
+        
+        <h3>1. ItemConstaints & ItemAction (Thanks to @nathan818fr)</h3>
+        <p>Je tiens à préciser que les exemples de code ne sont pas de moi mais de @nathan818fr.</p>
 
         <h3>ItemAction</h3>
         <pre><code>private static final String MY_ACTION = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
@@ -238,17 +251,19 @@ void onItemAction(ItemActionEvent event) {
 }</code></pre>
 
         <h3>ItemConstraints</h3>
+        <p>Malheureusement, je n'ai pas d'exemples propre à montrer; mais voici :</p>
         <pre><code>ItemStack stack = [...];
 ItemConstraints.lock(stack);
 // give</code></pre>
+        <p>L'item ne pourra pas être déplacé du tout</p>
         
         <pre><code>ItemStack stack = [...];
 ItemConstraints.link(stack);
 // give</code></pre>
+        <p>L'item est bloqué dans l'inventaire dans lequel il est placé (celui du joueur, un coffre, etc)</p>
 
         <h3>ChatComponents</h3>
-        <p>Pour éviter de se prendre la tête à coder un système de ChatComponents vous pouvez utiliser Kyori :</p>
-        <p><a href="https://github.com/KyoriPowered/adventure-platform">https://github.com/KyoriPowered/adventure-platform</a></p>
+        <p>Pour éviter de se prendre la tête à codé un système de ChatComponents vous pouvez utiliser Kyori : <a href="https://github.com/KyoriPowered/adventure-platform">https://github.com/KyoriPowered/adventure-platform</a></p>
         <p>Documentation : <a href="https://docs.advntr.dev/platform/">https://docs.advntr.dev/platform/</a></p>
     </div>
 </body>
